@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f8">
+  <meta name="description" content="A simple random pick for the little yes-or-no decisions.">
+  <title>Decision Switch — A little clarity</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Decision Switch home">
+        <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-name">decision<span>switch</span></span>
+      </a>
+      <div class="header-note"><span class="live-dot" aria-hidden="true"></span> A little clarity, on demand</div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="overline">FOR THE EVERYDAY CROSSROADS</p>
+      <h1 id="page-title">Some decisions<br>just need a <em>little nudge.</em></h1>
+      <p class="intro-copy">Put your question into words. Take a breath. Let a random pick point you one way.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="decision-panel" aria-labelledby="question-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-index">01 <span>/ YOUR QUESTION</span></p>
+            <h2 id="question-title">What's on your mind?</h2>
+          </div>
+          <span class="optional-tag">OPTIONAL</span>
+        </div>
+
+        <label class="visually-hidden" for="questionInput">Type your yes-or-no question</label>
+        <textarea id="questionInput" class="question-input" maxlength="180" rows="2" placeholder="Should I go for it? Take the day off? Try something new?"></textarea>
+        <div class="input-bottomline">
+          <span>Keep it simple. A yes-or-no question works best.</span>
+          <span id="characterCount">0 / 180</span>
+        </div>
+
+        <button class="pick-button" id="drawButton" type="button">
+          <span>Make a random pick</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg>
+        </button>
+
+        <section class="result-box" id="resultStage" data-result="none" aria-live="polite" aria-atomic="true">
+          <div class="result-copy">
+            <span class="result-eyebrow" id="answerKicker">YOUR PICK WILL APPEAR HERE</span>
+            <p class="answer-word" id="answerWord">Ready when you are.</p>
+            <span class="result-number" id="resultNumber">A RANDOM PICK</span>
+          </div>
+          <div class="result-mark" aria-hidden="true" id="resultMark"><span>?</span></div>
+        </section>
+
+        <p class="gentle-note">A playful nudge for everyday choices — the final call is always yours.</p>
+      </section>
+
+      <aside class="history-panel" aria-labelledby="history-title">
+        <div class="history-heading">
+          <div>
+            <p class="section-index">02 <span>/ YOUR TRAIL</span></p>
+            <h2 id="history-title">Recent picks</h2>
+          </div>
+          <button class="clear-button" id="clearHistoryButton" type="button" disabled>Clear all</button>
+        </div>
+        <div class="history-list" id="historyList">
+          <div class="empty-history" id="emptyHistory">
+            <span class="empty-icon" aria-hidden="true">↳</span>
+            <p>Your questions and picks<br>will show up here.</p>
+          </div>
+        </div>
+        <div class="history-footnote"><span class="history-count" id="historyCount">0</span> saved on this device</div>
+      </aside>
+    </div>
+
+    <footer class="site-footer">
+      <div class="privacy-note">
+        <span class="lock-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20"><rect x="4.5" y="8.5" width="11" height="8" rx="1.8"/><path d="M7 8.5V6a3 3 0 0 1 6 0v2.5"/></svg>
+        </span>
+        <span><strong>Your data stays yours.</strong> Questions and history are saved in this browser on your device — not sent over the internet.</span>
+      </div>
+      <span class="footer-credit">MADE FOR THE LITTLE DECISIONS <i>✳</i></span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
